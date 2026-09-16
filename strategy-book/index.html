@@ -7,6 +7,8 @@
   <title>日本株 実戦投資戦略BOOK</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2314233B'/%3E%3Cpath d='M15 42 27 30l8 7 14-17' fill='none' stroke='%23fff' stroke-width='6'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="../shared/site.css">
+  <script src="../shared/tracking-config.js" defer></script>
+  <script src="../shared/lead-tracker.js" defer></script>
   <script src="../shared/lead-flow.js" defer></script>
 </head>
 <body data-page="strategy-book" data-campaign="strategy-book-2026-09">
@@ -33,7 +35,7 @@
             <span>日銀政策・円相場・決算・資金管理</span>
           </div>
           <p class="book-condensed-message">プロの投資判断を1冊に凝縮</p>
-          <button class="cta-button hero-cta" type="button" data-open-age-modal>無料で受け取る</button>
+          <button class="cta-button hero-cta" type="button" data-open-age-modal data-track-cta="hero">無料で受け取る</button>
           <p class="micro">LINEで受け取り方法をご案内します。ボタンを押した後、年代を選択してください。</p>
         </div>
 
@@ -186,7 +188,7 @@
           <h2 class="section-heading">相場で生き残る人が<br>「買う前」に確認していることを知る。</h2>
           <p>9月期間限定｜無料公開</p>
         </div>
-        <button class="cta-button" type="button" data-open-age-modal>今すぐ無料で受け取る</button>
+        <button class="cta-button" type="button" data-open-age-modal data-track-cta="final">今すぐ無料で受け取る</button>
       </div>
     </section>
 
@@ -201,7 +203,7 @@
   </main>
 
   <footer class="page-footer">
-    <div class="container">© 2026 SUMMITFORGE CAPITAL｜会社資料に基づく情報ページ</div>
+    <div class="container">© 2026 SUMMITFORGE CAPITAL｜会社資料に基づく情報ページ｜<a href="../privacy.html">データ利用について</a><button class="tracking-settings" type="button" data-tracking-settings hidden>データ設定</button></div>
   </footer>
 
   <aside class="conversion-bar" aria-label="無料資料の受け取り">
@@ -214,7 +216,7 @@
         <span class="timer-label" data-timer-label aria-live="polite">受付残り時間</span>
         <span class="timer" data-countdown>30:00</span>
       </div>
-      <button class="cta-button" type="button" data-open-age-modal>無料で受け取る</button>
+      <button class="cta-button" type="button" data-open-age-modal data-track-cta="fixed">無料で受け取る</button>
     </div>
   </aside>
 
@@ -222,12 +224,12 @@
     <section class="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-describedby="age-copy">
       <button class="modal-close" type="button" aria-label="閉じる" data-close-modal>×</button>
       <h2 class="modal-title" id="age-title">年代を選択してください</h2>
-      <p class="modal-copy" id="age-copy">選択後、LINEで無料資料の受け取り方法をご案内します。年代情報はこのページでは保存しません。</p>
+      <p class="modal-copy" id="age-copy">選択後、LINEで無料資料の受け取り方法をご案内します。同意いただいた場合、年代とアクセス状況をサービス改善のため記録します。<a href="../privacy.html">データ利用の詳細</a></p>
       <div class="age-grid">
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">30代以下</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">40代</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">50代</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">60代以上</a>
+        <a class="age-link" data-age-link data-age-group="under_40" href="https://line.me/ti/p/RTSB_TkeeW">30代以下</a>
+        <a class="age-link" data-age-link data-age-group="40s" href="https://line.me/ti/p/RTSB_TkeeW">40代</a>
+        <a class="age-link" data-age-link data-age-group="50s" href="https://line.me/ti/p/RTSB_TkeeW">50代</a>
+        <a class="age-link" data-age-link data-age-group="60_plus" href="https://line.me/ti/p/RTSB_TkeeW">60代以上</a>
       </div>
       <p class="modal-note">LINEアプリまたはLINEのウェブページへ移動します。</p>
     </section>

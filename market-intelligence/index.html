@@ -8,6 +8,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23061625'/%3E%3Cpath d='M14 45 27 33l8 6 15-20' fill='none' stroke='%2333D6C5' stroke-width='6'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="../shared/site.css">
   <link rel="stylesheet" href="./page.css">
+  <script src="../shared/tracking-config.js" defer></script>
+  <script src="../shared/lead-tracker.js" defer></script>
   <script src="../shared/lead-flow.js" defer></script>
 </head>
 <body data-page="growth-candidates" data-campaign="growth-candidates-2026-09">
@@ -27,7 +29,7 @@
           <div class="growth-chip-row" aria-label="レポートの確認項目">
             <span>MARKET</span><span>GROWTH</span><span>MARGIN</span><span>CASH FLOW</span><span>RISK</span>
           </div>
-          <button class="cta-button growth-cta hero-cta" type="button" data-open-age-modal>10倍株候補レポートをLINEで受け取る</button>
+          <button class="cta-button growth-cta hero-cta" type="button" data-open-age-modal data-track-cta="hero">10倍株候補レポートをLINEで受け取る</button>
           <p class="growth-micro">ボタンを押した後、年代を選択してください。LINEで受け取り方法をご案内します。</p>
           <p class="growth-boundary">※「10倍株候補」は調査上の呼称です。将来の株価上昇や投資成果を示唆・保証するものではありません。</p>
         </div>
@@ -73,7 +75,7 @@
           <p>強い相場も高成長株も、気づいた時には評価が進んでいることがあります。すべての上昇を捉えることはできません。</p>
           <p>だからこそ、値動きを追いかける前に「どの市場を見るか」「何を確認するか」を決めておく。その準備が、次の機会を見落としにくくします。</p>
           <blockquote>次の高倍成長株は、<br>どの市場・テーマから現れるのか。</blockquote>
-          <button class="cta-button growth-cta" type="button" data-open-age-modal>10倍株候補レポートをLINEで受け取る</button>
+          <button class="cta-button growth-cta" type="button" data-open-age-modal data-track-cta="opportunity">10倍株候補レポートをLINEで受け取る</button>
         </div>
 
         <ol class="growth-question-list" aria-label="候補を探す前の3つの質問">
@@ -176,7 +178,7 @@
     <section class="growth-final section" aria-labelledby="final-title">
       <div class="container growth-final-grid">
         <div><span class="growth-section-code">BUILD THE WATCHLIST</span><h2 id="final-title">次の候補を探す前に、<br>確認する基準を持つ。</h2><p>歴史的な勝者を追いかけるのではなく、候補を継続して比較するための確認項目を受け取る。</p></div>
-        <button class="cta-button growth-cta" type="button" data-open-age-modal>10倍株候補レポートをLINEで受け取る</button>
+        <button class="cta-button growth-cta" type="button" data-open-age-modal data-track-cta="final">10倍株候補レポートをLINEで受け取る</button>
       </div>
     </section>
 
@@ -187,13 +189,13 @@
     </section>
   </main>
 
-  <footer class="page-footer growth-footer"><div class="container">© 2026 SUMMITFORGE CAPITAL｜会社資料に基づく情報ページ</div></footer>
+  <footer class="page-footer growth-footer"><div class="container">© 2026 SUMMITFORGE CAPITAL｜会社資料に基づく情報ページ｜<a href="../privacy.html">データ利用について</a><button class="tracking-settings" type="button" data-tracking-settings hidden>データ設定</button></div></footer>
 
   <aside class="conversion-bar growth-conversion-bar" aria-label="10倍株候補レポートの受け取り">
     <div class="conversion-inner">
       <div class="conversion-copy"><span class="conversion-kicker">JAPAN GROWTH REPORT</span><strong class="conversion-title" data-expiry-copy>候補を比較する確認項目を一冊に</strong></div>
       <div class="timer-wrap"><span class="timer-label" data-timer-label aria-live="polite">受付残り時間</span><span class="timer" data-countdown>30:00</span></div>
-      <button class="cta-button growth-cta" type="button" data-open-age-modal>10倍株候補レポートをLINEで受け取る</button>
+      <button class="cta-button growth-cta" type="button" data-open-age-modal data-track-cta="fixed">10倍株候補レポートをLINEで受け取る</button>
     </div>
   </aside>
 
@@ -201,12 +203,12 @@
     <section class="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-describedby="age-copy">
       <button class="modal-close" type="button" aria-label="閉じる" data-close-modal>×</button>
       <h2 class="modal-title" id="age-title">年代を選択してください</h2>
-      <p class="modal-copy" id="age-copy">選択後、LINEで10倍株候補レポートの受け取り方法をご案内します。年代情報はこのページでは保存しません。</p>
+      <p class="modal-copy" id="age-copy">選択後、LINEで10倍株候補レポートの受け取り方法をご案内します。同意いただいた場合、年代とアクセス状況をサービス改善のため記録します。<a href="../privacy.html">データ利用の詳細</a></p>
       <div class="age-grid">
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">30代以下</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">40代</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">50代</a>
-        <a class="age-link" data-age-link href="https://line.me/ti/p/RTSB_TkeeW">60代以上</a>
+        <a class="age-link" data-age-link data-age-group="under_40" href="https://line.me/ti/p/RTSB_TkeeW">30代以下</a>
+        <a class="age-link" data-age-link data-age-group="40s" href="https://line.me/ti/p/RTSB_TkeeW">40代</a>
+        <a class="age-link" data-age-link data-age-group="50s" href="https://line.me/ti/p/RTSB_TkeeW">50代</a>
+        <a class="age-link" data-age-link data-age-group="60_plus" href="https://line.me/ti/p/RTSB_TkeeW">60代以上</a>
       </div>
       <p class="modal-note">LINEアプリまたはLINEのウェブページへ移動します。</p>
     </section>

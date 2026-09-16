@@ -1791,6 +1791,93 @@ body[data-page="stock-diagnosis"] {
   }
 }
 
+/* Tracking consent */
+.tracking-notice {
+  position: relative;
+  z-index: 60;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 14px var(--gutter);
+  background: #0c2033;
+  color: #f3f7fb;
+  font-family: var(--font-body);
+}
+
+.tracking-notice__inner {
+  display: grid;
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
+  gap: 12px;
+}
+
+.tracking-notice strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.84rem;
+}
+
+.tracking-notice p {
+  color: #c5d4df;
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.tracking-notice a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tracking-notice__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tracking-notice button,
+.tracking-settings {
+  border: 1px solid currentColor;
+  padding: 8px 12px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.tracking-notice button {
+  min-height: 40px;
+  color: #f3f7fb;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.tracking-notice .tracking-notice__accept {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: #0c2033;
+}
+
+.tracking-settings {
+  margin-left: 8px;
+  padding: 3px 6px;
+  font-size: 0.68rem;
+}
+
+.tracking-notice button:focus-visible,
+.tracking-settings:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (min-width: 700px) {
+  .tracking-notice__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .tracking-notice__actions {
+    justify-content: flex-end;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
