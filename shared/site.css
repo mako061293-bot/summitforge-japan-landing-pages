@@ -473,81 +473,123 @@ body[data-page="strategy-book"] {
   align-content: center;
 }
 
-.book-year {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  color: var(--book-red);
-  font-family: var(--font-condensed);
-  font-size: clamp(3rem, 15vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.85;
+.book-document-label {
+  display: grid;
+  gap: 5px;
+  width: fit-content;
+  max-width: 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(20, 35, 59, 0.32);
 }
 
-.book-year small {
-  color: var(--book-ink);
-  font-size: 0.18em;
-  letter-spacing: 0.12em;
-}
-
-.book-title {
-  max-width: 720px;
+.book-document-label strong {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 9vw, 5.2rem);
+  font-size: clamp(0.86rem, 2.3vw, 1rem);
+}
+
+.book-document-label span {
+  color: var(--book-muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+
+.book-question {
+  max-width: 760px;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 7.2vw, 3.2rem);
   font-weight: 900;
   letter-spacing: -0.055em;
+  line-height: 1.28;
 }
 
-.book-subtitle {
-  max-width: 600px;
+.book-question-copy {
+  display: grid;
+  gap: 5px;
   padding-left: 14px;
-  border-left: 2px solid var(--book-brass);
+  border-left: 3px solid var(--book-red);
+}
+
+.book-question-copy strong {
+  font-size: clamp(0.94rem, 2.5vw, 1.1rem);
+}
+
+.book-question-copy span {
+  color: var(--book-red);
+  font-weight: 800;
+}
+
+.book-topic-list {
+  display: grid;
+  gap: 7px;
   color: var(--book-muted);
-  font-size: clamp(0.92rem, 2.8vw, 1.12rem);
+  font-size: 0.84rem;
+  font-weight: 600;
 }
 
-.book-instrument {
+.book-topic-list span::before {
+  margin-right: 8px;
+  color: var(--book-brass);
+  content: "—";
+}
+
+.book-condensed-message {
+  font-family: var(--font-serif);
+  font-size: clamp(1.02rem, 2.6vw, 1.28rem);
+  font-weight: 900;
+}
+
+.book-course-cover {
   position: relative;
-  min-height: 210px;
-  border: 1px solid rgba(20, 35, 59, 0.3);
+  display: grid;
+  min-height: 380px;
+  align-content: center;
+  gap: 20px;
+  border: 1px solid rgba(20, 35, 59, 0.36);
+  padding: clamp(24px, 5vw, 42px);
   background:
-    linear-gradient(rgba(20, 35, 59, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 35, 59, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(20, 35, 59, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 35, 59, 0.06) 1px, transparent 1px),
+    #e8e4d9;
   background-size: 32px 32px;
+  box-shadow: 16px 16px 0 rgba(181, 58, 50, 0.1);
 }
 
-.book-instrument::before,
-.book-instrument::after {
+.book-course-cover::before {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 7px;
+  background: var(--book-red);
   content: "";
 }
 
-.book-instrument::before {
-  inset: 25% 8% 20%;
-  border-top: 3px solid var(--book-red);
-  border-right: 3px solid var(--book-red);
-  transform: skewY(-13deg);
-}
-
-.book-instrument::after {
-  right: 12%;
-  bottom: 18%;
-  width: 12px;
-  height: 12px;
-  border: 4px solid var(--book-paper);
-  border-radius: 50%;
-  background: var(--book-red);
-  box-shadow: 0 0 0 2px var(--book-red);
-}
-
-.book-instrument-label {
-  position: absolute;
-  right: 14px;
-  bottom: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+.book-course-year {
+  color: var(--book-red);
+  font-family: var(--font-condensed);
+  font-size: 1rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
+}
+
+.book-course-cover h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 6vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.book-course-cover p {
+  color: var(--book-muted);
+  font-size: 0.9rem;
+}
+
+.book-course-cover > strong {
+  width: fit-content;
+  border: 1px solid var(--book-ink);
+  padding: 8px 11px;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
 }
 
 .book-problem {
@@ -573,6 +615,12 @@ body[data-page="strategy-book"] {
   color: #dd8c81;
   font-family: var(--font-mono);
   font-size: 0.76rem;
+}
+
+.book-problem-close {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 4.5vw, 2.25rem);
+  font-weight: 900;
 }
 
 .book-thesis {
@@ -626,6 +674,33 @@ body[data-page="strategy-book"] {
   font-size: 0.9rem;
 }
 
+.tech-item p strong {
+  color: var(--book-ink);
+}
+
+.tech-note {
+  display: inline-block;
+  margin-top: 12px;
+  border-bottom: 2px solid var(--book-red);
+  padding-bottom: 3px;
+  font-size: 0.78rem;
+}
+
+.trap-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.trap-list li {
+  border: 1px solid rgba(20, 35, 59, 0.24);
+  padding: 6px 8px;
+  color: var(--book-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
 .company-sheet {
   background: #d9d5ca;
 }
@@ -661,6 +736,32 @@ body[data-page="strategy-book"] {
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.55;
+}
+
+.company-ledger-six .ledger-value {
+  font-size: clamp(1.35rem, 5.5vw, 2.45rem);
+  overflow-wrap: anywhere;
+}
+
+.company-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.company-values span {
+  border: 1px solid rgba(20, 35, 59, 0.3);
+  padding: 7px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.company-source-note {
+  margin-top: 14px;
+  color: #4f5968;
 }
 
 .case-grid {
@@ -725,10 +826,38 @@ body[data-page="strategy-book"] {
   font-size: 0.66rem;
 }
 
-.case-card > p {
-  margin-top: 16px;
+.case-concept {
+  margin-top: 12px;
+  color: var(--book-red);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.case-point {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
   color: var(--book-muted);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
+}
+
+.case-point > strong {
+  width: fit-content;
+  border-bottom: 2px solid var(--book-red);
+  color: var(--book-ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.case-point b {
+  color: var(--book-ink);
+}
+
+.case-disclaimer {
+  margin-top: 14px;
+  color: var(--book-muted);
 }
 
 [data-page="strategy-book"] .cta-button,
@@ -1545,6 +1674,10 @@ body[data-page="stock-diagnosis"] {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .company-ledger.company-ledger-six {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .report-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1596,7 +1729,13 @@ body[data-page="stock-diagnosis"] {
     display: none;
   }
 
+  .book-question {
+    font-size: 1.7rem;
+    line-height: 1.23;
+  }
+
   .book-instrument,
+  .book-course-cover,
   .market-meta-row,
   .report-cover,
   .diag-sheet,
