@@ -370,8 +370,7 @@ body[data-page="growth-candidates"] {
 }
 
 .growth-review-note,
-.growth-history-note,
-.growth-company-note {
+.growth-history-note {
   margin-top: 14px;
   color: var(--growth-muted);
   font-size: 0.7rem;

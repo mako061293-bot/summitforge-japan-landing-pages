@@ -760,11 +760,6 @@ body[data-page="strategy-book"] {
   letter-spacing: 0.04em;
 }
 
-.company-source-note {
-  margin-top: 14px;
-  color: #4f5968;
-}
-
 .case-grid {
   display: grid;
   gap: 18px;
