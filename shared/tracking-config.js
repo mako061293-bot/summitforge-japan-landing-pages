@@ -5,6 +5,6 @@
       ? "http://127.0.0.1:8787"
       : "https://summitforge-lead-collector.summitforge-lead-tracking.workers.dev",
     privacyUrl: "../privacy.html",
-    version: "1",
+    version: "2",
   });
 })();

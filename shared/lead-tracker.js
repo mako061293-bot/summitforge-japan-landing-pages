@@ -330,6 +330,7 @@
 
   const showNotice = () => {
     removeNotice();
+    const alreadyGranted = getConsent() === "granted";
     const notice = document.createElement("section");
     notice.className = "tracking-notice";
     notice.dataset.trackingNotice = "";
@@ -342,8 +343,8 @@
           <p>年代、閲覧状況、アクセス元、IPアドレス、端末情報を、ご案内の改善と利用状況の分析に使用します。<a href="${config.privacyUrl || "../privacy.html"}">詳細を確認</a></p>
         </div>
         <div class="tracking-notice__actions">
-          <button type="button" data-tracking-decline>同意しない</button>
-          <button type="button" class="tracking-notice__accept" data-tracking-accept>同意して続ける</button>
+          ${alreadyGranted ? '<button type="button" data-tracking-decline>同意を撤回</button>' : ""}
+          <button type="button" class="tracking-notice__accept" data-tracking-accept>${alreadyGranted ? "設定を閉じる" : "同意して続ける"}</button>
         </div>
       </div>`;
     body.prepend(notice);
@@ -352,7 +353,7 @@
       removeNotice();
       startTracking();
     });
-    notice.querySelector("[data-tracking-decline]").addEventListener("click", () => {
+    notice.querySelector("[data-tracking-decline]")?.addEventListener("click", () => {
       storageSet(localStorage, CONSENT_KEY, "denied");
       queue.length = 0;
       window.clearTimeout(flushTimer);
