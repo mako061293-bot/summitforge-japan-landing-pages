@@ -16,6 +16,7 @@
   const queue = [];
   const scrollMilestones = new Set();
   const engagementMilestones = new Set();
+  const diagnosisState = { stock_code: "", concern: "", age_group: "" };
   let trackerStarted = false;
   let flushTimer = 0;
   let activeSeconds = 0;
@@ -252,7 +253,7 @@
   };
 
   const bindInteractionTracking = () => {
-    document.querySelectorAll("[data-open-age-modal]").forEach((button, index) => {
+    document.querySelectorAll("[data-open-age-modal], [data-open-diagnosis-flow]").forEach((button, index) => {
       button.addEventListener("click", () => {
         track("cta_opened", { cta_location: button.dataset.trackCta || `cta_${index + 1}` }, true);
       });
@@ -265,6 +266,26 @@
         track("age_selected", { age_group: ageGroup, cta_location: ctaLocation });
         track("line_outbound", { age_group: ageGroup, cta_location: ctaLocation }, true);
       });
+    });
+
+    document.addEventListener("summitforge:diagnosis", (event) => {
+      const detail = event.detail || {};
+      const value = String(detail.value || "").slice(0, 50);
+      if (detail.step === "started") {
+        track("diagnosis_started", { cta_location: detail.cta_location || "form" }, true);
+      } else if (detail.step === "stock") {
+        diagnosisState.stock_code = value;
+        track("diagnosis_stock_entered", { stock_code: value }, true);
+      } else if (detail.step === "concern") {
+        diagnosisState.concern = value;
+        track("diagnosis_concern_selected", { concern: value }, true);
+      } else if (detail.step === "age") {
+        diagnosisState.age_group = value;
+        track("diagnosis_age_selected", { age_group: value }, true);
+      } else if (detail.step === "completed") {
+        track("diagnosis_completed", { ...diagnosisState }, true);
+        track("line_outbound", { ...diagnosisState, cta_location: "diagnosis_form" }, true);
+      }
     });
 
     document.addEventListener("click", (event) => {
@@ -340,7 +361,7 @@
       <div class="tracking-notice__inner">
         <div>
           <strong id="tracking-notice-title">アクセスデータの利用について</strong>
-          <p>年代、閲覧状況、アクセス元、IPアドレス、端末情報を、ご案内の改善と利用状況の分析に使用します。<a href="${config.privacyUrl || "../privacy.html"}">詳細を確認</a></p>
+          <p>年代、入力内容、閲覧状況、アクセス元、IPアドレス、端末情報を、ご案内の改善と利用状況の分析に使用します。<a href="${config.privacyUrl || "../privacy.html"}">詳細を確認</a></p>
         </div>
         <div class="tracking-notice__actions">
           ${alreadyGranted ? '<button type="button" data-tracking-decline>同意を撤回</button>' : ""}

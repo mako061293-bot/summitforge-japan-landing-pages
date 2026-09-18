@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="業績・割安度・需給・政策感応度・リスクの5項目で、日本株の保有銘柄を整理する無料診断案内。">
-  <title>日本株 5項目診断</title>
+  <meta name="description" content="保有銘柄を、利益率の質・為替感応度・決算前リスクの3つのシグナルで整理する無料AI診断。">
+  <title>日本株 3シグナル診断</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23143039'/%3E%3Cpath d='M15 42 27 30l8 7 14-17' fill='none' stroke='%2337B693' stroke-width='6'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="../shared/site.css">
-  <script src="../shared/tracking-config.js?v=2" defer></script>
-  <script src="../shared/lead-tracker.js?v=2" defer></script>
+  <script src="../shared/tracking-config.js?v=3" defer></script>
+  <script src="../shared/lead-tracker.js?v=3" defer></script>
   <script src="../shared/lead-flow.js" defer></script>
+  <script src="./diagnosis-flow.js" defer></script>
 </head>
 <body data-page="stock-diagnosis" data-campaign="stock-diagnosis-2026-09">
   <header class="diag-hero">
@@ -21,27 +22,22 @@
 
       <div class="diag-hero-grid">
         <div class="stack">
-          <span class="diag-code">DIAGNOSTIC PROTOCOL / 05-POINT REVIEW</span>
-          <h1 class="diag-title">この下落は、<br>待つべきか。<br>売却すべきか。</h1>
-          <p class="diag-subtitle">業績｜割安度｜需給｜政策感応度｜リスク。感情ではなく、あなたの保有株を5つの確認軸で整理します。</p>
-          <button class="cta-button hero-cta" type="button" data-open-age-modal data-track-cta="hero">保有銘柄を無料診断</button>
-          <p class="micro">お一人につき1銘柄を目安に、LINEで銘柄コードをお送りください。</p>
-          <aside class="profit-question">
-            <strong>利益が出ている今こそ、判断が難しい。</strong>
-            <p>売る？ まだ持つ？ 買い増す？「持ち続ける理由」を数字で確認します。</p>
-          </aside>
+          <span class="diag-code">DIAGNOSTIC PROTOCOL / 3 SIGNALS</span>
+          <h1 class="diag-title">売る？<br>まだ持つ？<br>買い増す？</h1>
+          <p class="diag-subtitle">本当に危険なのは、株価が下がったことではなく、<br>「次に何を見ればいいか分からない」こと。</p>
+          <p class="diag-lead">保有を続けるかどうかは、値動きだけでは判断できません。プロは先に、その後の展開を変えうる3つのシグナルを確認します。</p>
+          <button class="cta-button hero-cta" type="button" data-open-diagnosis-flow data-track-cta="hero">AI診断を無料で始める</button>
+          <p class="micro">1銘柄｜約1分｜入力はこのページ内で完結します。</p>
         </div>
 
-        <div class="diag-sheet" aria-label="診断スコアの表示イメージ">
-          <div class="diag-sheet-head"><strong>STOCK DECISION SCORE</strong><span>SAMPLE</span></div>
-          <div class="score-ring"><div class="score-ring-inner"><strong>72</strong><small>/ 100</small></div></div>
-          <div class="diag-bars">
-            <div class="diag-bar-row"><span>EARNINGS</span><div class="diag-bar"><i style="width:82%"></i></div></div>
-            <div class="diag-bar-row"><span>VALUE</span><div class="diag-bar"><i style="width:66%"></i></div></div>
-            <div class="diag-bar-row"><span>FLOW</span><div class="diag-bar"><i style="width:58%"></i></div></div>
-            <div class="diag-bar-row"><span>MACRO</span><div class="diag-bar"><i style="width:74%"></i></div></div>
-            <div class="diag-bar-row"><span>RISK</span><div class="diag-bar"><i style="width:61%"></i></div></div>
-          </div>
+        <div class="diag-signal-sheet" aria-label="確認する3つのシグナル">
+          <div class="diag-sheet-head"><strong>3 SIGNALS TO CHECK</strong><span>BEFORE YOU DECIDE</span></div>
+          <ol class="diag-signal-mini">
+            <li><b>01</b><div><strong>利益の質</strong><p>増収が、そのまま利益になっているか。</p></div></li>
+            <li><b>02</b><div><strong>為替感応度</strong><p>円が動いたとき、受益者か、被害者か。</p></div></li>
+            <li><b>03</b><div><strong>決算前リスク</strong><p>市場がまだ織り込んでいない論点は何か。</p></div></li>
+          </ol>
+          <p class="diag-signal-note">この3項目を、次の画面で順番に整理します。</p>
         </div>
       </div>
     </div>
@@ -71,12 +67,125 @@
       </div>
     </section>
 
+    <section class="section diag-signals" aria-labelledby="signals-title">
+      <div class="container">
+        <div class="stack-tight">
+          <span class="eyebrow">Three signals before you decide</span>
+          <h2 class="section-heading" id="signals-title">判断する前に確認する、<br>3つのシグナル。</h2>
+          <p class="section-lead">上がる・下がるを当てるのではなく、保有を続ける前に事実を確認します。</p>
+        </div>
+
+        <ol class="signal-list">
+          <li class="signal-item">
+            <span class="signal-number">01</span>
+            <h3>利益はまだ伸びているか、伸び方の質が変わっていないか</h3>
+            <span class="signal-tag">営業利益率の変化</span>
+            <p>増収が、そのまま利益になっているとは限りません。営業利益率、コスト構造、会社計画と実績の差を並べ、収益力が強まっているのか、静かに悪化しているのかを確認します。株価より先に、利益率へ変化が現れることがあります。</p>
+          </li>
+          <li class="signal-item">
+            <span class="signal-number">02</span>
+            <h3>円が動いたとき、この会社は受益者か、それとも被害者か</h3>
+            <span class="signal-tag">為替感応度</span>
+            <p>海外売上比率が高いだけで、円安がプラスになるとは限りません。生産コスト、調達通貨、海外収益の構造、為替ヘッジの有無まで確認します。同じ「輸出株」でも、円相場の変化がもたらす結果は正反対になり得ます。</p>
+          </li>
+          <li class="signal-item">
+            <span class="signal-number">03</span>
+            <h3>次の決算発表の前に、市場がまだ織り込んでいないリスクはないか</h3>
+            <span class="signal-tag">決算前リスクの確認</span>
+            <p>次回決算の前に、業績期待との差、流動性、信用残、重要イベント、業績ガイダンスの変化を確認します。</p>
+          </li>
+        </ol>
+
+        <p class="signal-conclusion">本当に警戒すべきは、決算後の下落ではなく、<br>決算前にすでに出ていたサインです。</p>
+      </div>
+    </section>
+
+    <section class="section diag-ai" id="ai-diagnosis" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="stack-tight">
+          <span class="eyebrow">AI diagnosis</span>
+          <h2 class="section-heading" id="ai-title">入力は4ステップ。<br>確認すべき点を整理します。</h2>
+          <p class="section-lead">銘柄と気になる点を入力すると、確認すべき観点を整理します。年代の選択後、LINEで最終レポートの受け取り方法をご案内します。</p>
+        </div>
+
+        <form class="diag-form" data-diagnosis-flow novalidate>
+          <ol class="diag-form-progress" aria-label="診断の進行状況">
+            <li data-step-indicator="1"><b>01</b><span>銘柄</span></li>
+            <li data-step-indicator="2"><b>02</b><span>気になる点</span></li>
+            <li data-step-indicator="3"><b>03</b><span>年代</span></li>
+            <li data-step-indicator="4"><b>04</b><span>確認</span></li>
+          </ol>
+
+          <div class="diag-form-panel" data-step-panel="1">
+            <h3>STEP 1｜保有している銘柄</h3>
+            <p class="diag-form-help">証券コード（例：5803）または会社名をご入力ください。</p>
+            <label class="diag-field">
+              <span>銘柄</span>
+              <input type="text" name="stock" maxlength="40" autocomplete="off" placeholder="例：5803 / フジクラ" data-stock-input>
+            </label>
+            <p class="diag-form-error" data-error-for="stock" hidden>銘柄をご入力ください（2文字以上）。</p>
+            <div class="diag-form-actions">
+              <button class="cta-button" type="button" data-next-step="2">次へ進む</button>
+            </div>
+          </div>
+
+          <div class="diag-form-panel" data-step-panel="2" hidden>
+            <h3>STEP 2｜いま一番気になっていること</h3>
+            <p class="diag-form-help">当てはまるものを1つお選びください。</p>
+            <div class="diag-options" role="radiogroup" aria-label="気になっていること">
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-concern-option="sell"><strong>売るべきか迷っている</strong><span>含み損・含み益のどちらでも</span></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-concern-option="hold"><strong>持ち続けるべきか迷っている</strong><span>保有を続ける理由を確認したい</span></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-concern-option="buy_more"><strong>買い増すべきか迷っている</strong><span>追加で買う前に整理したい</span></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-concern-option="earnings_risk"><strong>決算前のリスクが気になる</strong><span>次回決算までの確認点を知りたい</span></button>
+            </div>
+            <p class="diag-form-error" data-error-for="concern" hidden>気になる点を1つお選びください。</p>
+            <div class="diag-form-actions">
+              <button class="diag-back" type="button" data-previous-step="1">戻る</button>
+              <button class="cta-button" type="button" data-next-step="3">次へ進む</button>
+            </div>
+          </div>
+
+          <div class="diag-form-panel" data-step-panel="3" hidden>
+            <h3>STEP 3｜年代</h3>
+            <p class="diag-form-help">ご案内の内容を合わせるために使用します。</p>
+            <div class="diag-options diag-options-age" role="radiogroup" aria-label="年代">
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-age-option="under_40"><strong>30代以下</strong></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-age-option="40s"><strong>40代</strong></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-age-option="50s"><strong>50代</strong></button>
+              <button class="diag-option" type="button" role="radio" aria-checked="false" data-age-option="60_plus"><strong>60代以上</strong></button>
+            </div>
+            <p class="diag-form-error" data-error-for="age" hidden>年代をお選びください。</p>
+            <div class="diag-form-actions">
+              <button class="diag-back" type="button" data-previous-step="2">戻る</button>
+              <button class="cta-button" type="button" data-next-step="4">確認へ進む</button>
+            </div>
+          </div>
+
+          <div class="diag-form-panel" data-step-panel="4" hidden>
+            <h3>STEP 4｜入力内容の確認</h3>
+            <dl class="diag-summary">
+              <div><dt>銘柄</dt><dd data-summary="stock">—</dd></div>
+              <div><dt>気になる点</dt><dd data-summary="concern">—</dd></div>
+              <div><dt>年代</dt><dd data-summary="age">—</dd></div>
+            </dl>
+            <p class="diag-form-help">内容をご確認のうえ、LINEで最終レポートの受け取り方法をご案内します。</p>
+            <div class="diag-form-actions diag-form-actions-final">
+              <button class="diag-back" type="button" data-previous-step="3">戻る</button>
+              <a class="cta-button" href="https://line.me/ti/p/RTSB_TkeeW" data-diagnosis-submit>LINEで最終レポートを受け取る</a>
+            </div>
+            <p class="micro diag-form-note">LINEアプリまたはLINEのウェブページへ移動します。お一人につき1銘柄を目安にご案内します。<a href="../privacy.html">データ利用の詳細</a></p>
+          </div>
+        </form>
+        <noscript><p class="micro">この診断フォームの操作にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</p></noscript>
+      </div>
+    </section>
+
     <section class="section diag-matrix-section" aria-labelledby="dimensions-title">
       <div class="container">
         <div class="stack-tight">
           <span class="eyebrow">Five diagnostic dimensions</span>
-          <h2 class="section-heading" id="dimensions-title">保有銘柄を<br>5項目で整理。</h2>
-          <p class="section-lead" style="color:#b7cbc7">「上がる・下がる」の断定ではなく、保有を続ける前に確認すべき事実を洗い出します。</p>
+          <h2 class="section-heading" id="dimensions-title">業績｜割安度｜需給｜<br>政策感応度｜リスク。</h2>
+          <p class="section-lead" style="color:#b7cbc7">感情に頼るのではなく、5つの確認軸で保有を整理します。</p>
         </div>
 
         <ol class="diag-matrix">
@@ -89,23 +198,32 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="result-title">
+    <section class="section" aria-labelledby="case-title">
       <div class="container">
         <div class="stack-tight">
-          <span class="eyebrow">Output sample</span>
-          <h2 class="section-heading" id="result-title">今、この銘柄で<br>確認すべき3項目。</h2>
-          <p class="section-lead">診断内容は、数字の優劣だけでなく「次に確認する一次情報」まで整理する想定です。</p>
+          <span class="eyebrow">Public case review</span>
+          <h2 class="section-heading" id="case-title">公開情報で振り返る、<br>判断の分かれ目。</h2>
+          <p class="section-lead">過去に評価が大きく変わった銘柄を、公開情報だけで事後的に振り返ります。当社が当時推奨した実績ではなく、候補選定の一般的な命中率を示すものでもありません。</p>
         </div>
 
-        <div class="result-sheet">
-          <div class="result-head"><strong>診断結果イメージ</strong><span>架空サンプル</span></div>
-          <ol class="result-list">
-            <li><div><strong>営業利益率の変化</strong><p>前期比だけでなく、会社計画との差と変化の要因を確認。</p></div></li>
-            <li><div><strong>円相場への感応度</strong><p>海外売上比率・想定為替レート・価格転嫁力を整理。</p></div></li>
-            <li><div><strong>次回決算までのリスク</strong><p>信用残・流動性・イベント日程から見直し条件を設定。</p></div></li>
-          </ol>
-        </div>
-        <p class="micro" style="margin-top:12px">※上記は表示形式を説明する架空サンプルであり、特定銘柄の実際の診断・売買指示ではありません。</p>
+        <article class="diag-case">
+          <header>
+            <span>5803 / FUJIKURA</span>
+            <strong>240円 → 21,680円</strong>
+          </header>
+          <p>2020年3月の年安値240円から、2025年11月4日の年高値21,680円までを単純比較した記録です。配当・税・手数料は考慮していません。2026年4月1日付の1株→6株の株式分割後も、倍率は同じです。</p>
+          <dl>
+            <div><dt>計算</dt><dd>21,680 ÷ 240 = 90.33</dd></div>
+            <div><dt>口径</dt><dd>年安値・年高値、後見性を含む</dd></div>
+          </dl>
+          <p class="diag-case-lens">このような事例を振り返る場合も、確認する観点は同じ3つです。利益の質、為替感応度、決算前リスク。値動きの後ではなく、その前にある変化を見ます。</p>
+          <div class="diag-case-links">
+            <a href="https://s.kabutan.jp/stocks/5803/historical_prices/yearly/" target="_blank" rel="noopener noreferrer">年次株価</a>
+            <a href="https://kabutan.jp/stock/kabuka?ashi=shin&amp;code=5803&amp;page=9" target="_blank" rel="noopener noreferrer">高値記録</a>
+            <a href="https://www.fujikura.co.jp/ir/basic-information/index.html" target="_blank" rel="noopener noreferrer">株式分割</a>
+          </div>
+        </article>
+        <p class="micro">※2026年9月時点の公開情報による事後検証です。過去の値動きは将来の結果を示すものではありません。</p>
       </div>
     </section>
 
@@ -124,44 +242,14 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="review-case-title">
-      <div class="container">
-        <div class="stack-tight">
-          <span class="eyebrow">Portfolio review model</span>
-          <h2 class="section-heading" id="review-case-title">ポートフォリオ見直しの<br>モデルプロセス</h2>
-          <p class="section-lead">50代・日本株8銘柄保有を想定した、架空のレビュー例です。実際の顧客実績ではありません。</p>
-        </div>
-        <div class="review-example">
-          <div class="review-step" data-step="1"><strong>診断前</strong><p>特定業種への集中が48%。円相場と金利変化に同時に影響を受けやすい状態を想定。</p></div>
-          <div class="review-step" data-step="2"><strong>5項目レビュー</strong><p>金利感応度・為替・業績相関・流動性・決算日程を横断して確認。</p></div>
-          <div class="review-step" data-step="3"><strong>見直し条件</strong><p>業種集中を抑え、保有継続・縮小を再検討する条件を事前に言語化。</p></div>
-        </div>
-        <p class="micro" style="margin-top:12px">※架空の状況設定に基づく説明例です。収益結果を示すものではなく、将来の成果を保証しません。</p>
-      </div>
-    </section>
-
-    <section class="section" style="background:#e3ecea" aria-labelledby="flow-title">
-      <div class="container">
-        <div class="stack-tight">
-          <span class="eyebrow">How it works</span>
-          <h2 class="section-heading" id="flow-title">無料診断の流れ</h2>
-          <p class="section-lead">このページでは銘柄コードや個人情報を入力しません。年代を選択した後、LINE内でお送りください。</p>
-        </div>
-        <ol class="flow-list">
-          <li class="flow-step"><b>01</b><div><strong>年代を選択</strong><p>無料診断ボタンから年代を選びます。</p></div></li>
-          <li class="flow-step"><b>02</b><div><strong>LINEを追加</strong><p>案内先のLINEページへ移動します。</p></div></li>
-          <li class="flow-step"><b>03</b><div><strong>銘柄コードを送信</strong><p>保有銘柄1つを目安にお送りください。</p></div></li>
-        </ol>
-      </div>
-    </section>
-
     <section class="section-compact" aria-label="診断を受ける">
       <div class="container final-cta">
         <div class="stack-tight">
           <span class="eyebrow">Review before reaction</span>
-          <h2 class="section-heading">「上がる株」を当てるより、<br>「持ってはいけない理由」を早く見つける。</h2>
+          <h2 class="section-heading">あなたの保有銘柄は、<br>この3項目に耐えられますか。</h2>
+          <p>株価が動いた後ではなく、動く前に確認する。</p>
         </div>
-        <button class="cta-button" type="button" data-open-age-modal data-track-cta="final">無料診断を受ける</button>
+        <button class="cta-button" type="button" data-open-diagnosis-flow data-track-cta="final">AI診断を無料で始める</button>
       </div>
     </section>
 
@@ -169,7 +257,7 @@
       <div class="container">
         <div class="risk-box">
           <strong>診断と投資判断に関する重要事項</strong>
-          本ページの診断案内は一般的な情報整理を目的とし、特定銘柄の売買推奨、個別の投資助言、利益保証を行うものではありません。表示されるスコア・結果例は架空のサンプルです。株式投資には元本損失の可能性があります。市場・企業情報は変化するため、最新の開示資料をご確認のうえ、最終的な投資判断はご自身で行ってください。
+          本ページの診断は一般的な情報整理を目的とし、特定銘柄の売買推奨、個別の投資助言、利益保証を行うものではありません。ご入力いただいた銘柄と気になる点は、ご案内の整理のために記録します。株式投資には元本損失の可能性があります。市場・企業情報は変化するため、最新の開示資料をご確認のうえ、最終的な投資判断はご自身で行ってください。
         </div>
       </div>
     </section>
@@ -179,35 +267,18 @@
     <div class="container">© 2026 SUMMITFORGE CAPITAL｜日本株投資情報ページ｜<a href="../privacy.html">データ利用について</a><button class="tracking-settings" type="button" data-tracking-settings hidden>データ設定</button></div>
   </footer>
 
-  <aside class="conversion-bar" aria-label="無料診断の申し込み">
+  <aside class="conversion-bar" aria-label="無料AI診断の申し込み">
     <div class="conversion-inner">
       <div class="conversion-copy">
-        <span class="conversion-kicker">One stock / five checks</span>
-        <strong class="conversion-title" data-expiry-copy>保有銘柄の5項目診断</strong>
+        <span class="conversion-kicker">3 signals / one stock</span>
+        <strong class="conversion-title" data-expiry-copy>保有銘柄の3項目チェック</strong>
       </div>
       <div class="timer-wrap">
         <span class="timer-label" data-timer-label aria-live="polite">受付残り時間</span>
         <span class="timer" data-countdown>30:00</span>
       </div>
-      <button class="cta-button" type="button" data-open-age-modal data-track-cta="fixed">無料診断を受ける</button>
+      <button class="cta-button" type="button" data-open-diagnosis-flow data-track-cta="fixed">AI診断を無料で始める</button>
     </div>
   </aside>
-
-  <div class="modal-backdrop" data-age-modal hidden>
-    <section class="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-describedby="age-copy">
-      <button class="modal-close" type="button" aria-label="閉じる" data-close-modal>×</button>
-      <h2 class="modal-title" id="age-title">年代を選択してください</h2>
-      <p class="modal-copy" id="age-copy">選択後、LINEで保有銘柄の診断方法をご案内します。同意いただいた場合、年代とアクセス状況をサービス改善のため記録します。<a href="../privacy.html">データ利用の詳細</a></p>
-      <div class="age-grid">
-        <a class="age-link" data-age-link data-age-group="under_40" href="https://line.me/ti/p/RTSB_TkeeW">30代以下</a>
-        <a class="age-link" data-age-link data-age-group="40s" href="https://line.me/ti/p/RTSB_TkeeW">40代</a>
-        <a class="age-link" data-age-link data-age-group="50s" href="https://line.me/ti/p/RTSB_TkeeW">50代</a>
-        <a class="age-link" data-age-link data-age-group="60_plus" href="https://line.me/ti/p/RTSB_TkeeW">60代以上</a>
-      </div>
-      <p class="modal-note">LINEアプリまたはLINEのウェブページへ移動します。</p>
-    </section>
-  </div>
-
-  <noscript><p>このページの年代選択にはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。</p></noscript>
 </body>
 </html>

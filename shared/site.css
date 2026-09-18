@@ -1230,10 +1230,53 @@ body[data-page="stock-diagnosis"] {
   font-size: clamp(0.94rem, 2.7vw, 1.1rem);
 }
 
-.diag-sheet {
+.diag-lead {
+  max-width: 600px;
+  color: var(--diag-muted);
+  font-size: 0.86rem;
+  line-height: 1.85;
+}
+
+/* 3-signal summary panel */
+.diag-signal-sheet {
   border: 1px solid var(--diag-line);
   background: var(--diag-paper);
   box-shadow: 16px 16px 0 rgba(14, 122, 101, 0.08);
+}
+
+.diag-signal-mini {
+  display: grid;
+}
+
+.diag-signal-mini li {
+  display: grid;
+  padding: 16px;
+  border-bottom: 1px solid var(--diag-line);
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+}
+
+.diag-signal-mini b {
+  color: var(--diag-green);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.diag-signal-mini strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.diag-signal-mini p {
+  margin-top: 3px;
+  color: var(--diag-muted);
+  font-size: 0.76rem;
+}
+
+.diag-signal-note {
+  padding: 13px 16px;
+  color: var(--diag-muted);
+  font-size: 0.72rem;
 }
 
 .diag-sheet-head {
@@ -1253,81 +1296,62 @@ body[data-page="stock-diagnosis"] {
   letter-spacing: 0.06em;
 }
 
-.score-ring {
+/* 3 signals */
+.signal-list {
   display: grid;
-  width: 132px;
-  aspect-ratio: 1;
-  margin: 26px auto;
-  border: 12px solid #dbe8e5;
-  border-top-color: var(--diag-green);
-  border-right-color: var(--diag-green);
-  border-radius: 50%;
-  place-items: center;
-  transform: rotate(25deg);
+  margin-top: 30px;
+  border-top: 1px solid var(--diag-line);
 }
 
-.score-ring-inner {
+.signal-item {
   display: grid;
-  text-align: center;
-  transform: rotate(-25deg);
+  padding-block: 22px;
+  border-bottom: 1px solid var(--diag-line);
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 6px 14px;
+  align-items: start;
 }
 
-.score-ring strong {
+.signal-number {
+  color: var(--diag-green);
   font-family: var(--font-mono);
-  font-size: 2.2rem;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.score-ring small {
+.signal-item h3 {
+  font-size: clamp(1rem, 2.7vw, 1.24rem);
+  line-height: 1.45;
+}
+
+.signal-tag {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 6px;
+  border: 1px solid var(--diag-line);
+  padding: 4px 9px;
+  color: var(--diag-green-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  grid-column: 2;
+}
+
+.signal-item p {
+  margin-top: 4px;
   color: var(--diag-muted);
-  font-size: 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.85;
+  grid-column: 2;
 }
 
-.diag-bars {
-  display: grid;
-  padding: 0 20px 22px;
-  gap: 9px;
-}
-
-.diag-bar-row {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 10px;
-  align-items: center;
-  color: var(--diag-muted);
-  font-family: var(--font-mono);
-  font-size: 0.63rem;
-}
-
-.diag-bar {
-  height: 5px;
-  background: #dce7e5;
-}
-
-.diag-bar i {
-  display: block;
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-  background: var(--diag-green);
-}
-
-.profit-question {
-  padding: 18px;
-  border-left: 4px solid var(--diag-gold);
-  background: #fff8e8;
-}
-
-.profit-question strong {
-  display: block;
-  color: #79530f;
-  font-size: 1.02rem;
-}
-
-.profit-question p {
-  margin-top: 5px;
-  color: #7b6843;
-  font-size: 0.82rem;
+.signal-conclusion {
+  margin-top: 26px;
+  border-left: 4px solid var(--diag-green);
+  padding: 16px 18px;
+  background: #e3efec;
+  color: var(--diag-green-dark);
+  font-weight: 700;
+  line-height: 1.8;
 }
 
 .scenario-list {
@@ -1395,69 +1419,291 @@ body[data-page="stock-diagnosis"] {
   font-size: 0.76rem;
 }
 
-.result-sheet {
+/* AI diagnosis form */
+.diag-ai {
+  background: #e6efed;
+}
+
+.diag-form {
   margin-top: 28px;
   border: 1px solid var(--diag-line);
   background: var(--diag-paper);
+  box-shadow: 14px 14px 0 rgba(14, 122, 101, 0.07);
 }
 
-.result-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 16px;
+.diag-form-progress {
+  display: grid;
   border-bottom: 1px solid var(--diag-line);
-  background: #e3eeeb;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.result-head strong {
-  font-size: 0.86rem;
+.diag-form-progress li {
+  display: grid;
+  padding: 12px 10px;
+  border-right: 1px solid var(--diag-line);
+  gap: 2px;
+  color: var(--diag-muted);
 }
 
-.result-head span {
-  padding: 4px 7px;
-  background: var(--diag-green);
-  color: #ffffff;
-  font-size: 0.62rem;
+.diag-form-progress li:last-child {
+  border-right: 0;
+}
+
+.diag-form-progress b {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+.diag-form-progress span {
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
-.result-list {
+.diag-form-progress .is-current {
+  background: var(--diag-green);
+  color: #ffffff;
+}
+
+.diag-form-progress .is-done {
+  color: var(--diag-green-dark);
+}
+
+.diag-form-panel {
   display: grid;
-  counter-reset: results;
+  padding: clamp(20px, 4.5vw, 32px);
+  gap: 14px;
 }
 
-.result-list li {
-  display: grid;
-  padding: 16px;
-  border-bottom: 1px solid var(--diag-line);
-  counter-increment: results;
-  grid-template-columns: 34px 1fr;
-  gap: 9px;
+.diag-form-panel[hidden] {
+  display: none;
 }
 
-.result-list li:last-child {
-  border-bottom: 0;
+.diag-form-panel h3 {
+  font-size: clamp(1.05rem, 3.2vw, 1.3rem);
 }
 
-.result-list li::before {
-  color: var(--diag-green);
-  content: "0" counter(results);
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  font-weight: 600;
-}
-
-.result-list strong {
-  display: block;
-  font-size: 0.9rem;
-}
-
-.result-list p {
-  margin-top: 4px;
+.diag-form-help {
   color: var(--diag-muted);
+  font-size: 0.82rem;
+}
+
+.diag-field {
+  display: grid;
+  gap: 6px;
+}
+
+.diag-field span {
+  color: var(--diag-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.diag-field input {
+  min-height: 52px;
+  border: 1px solid var(--diag-line);
+  padding: 12px 14px;
+  background: #f7fbfa;
+  color: var(--diag-ink);
+  font: inherit;
+}
+
+.diag-field input:focus-visible {
+  border-color: var(--diag-green);
+  outline: 2px solid var(--diag-green);
+  outline-offset: 1px;
+}
+
+.diag-options {
+  display: grid;
+  gap: 10px;
+}
+
+.diag-option {
+  display: grid;
+  min-height: 62px;
+  border: 1px solid var(--diag-line);
+  padding: 13px 15px;
+  background: #f7fbfa;
+  color: var(--diag-ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.diag-option strong {
+  font-size: 0.94rem;
+}
+
+.diag-option span {
+  color: var(--diag-muted);
+  font-size: 0.74rem;
+}
+
+.diag-option.is-selected {
+  border-color: var(--diag-green);
+  background: #e2f1ed;
+  box-shadow: inset 4px 0 0 var(--diag-green);
+}
+
+.diag-option:focus-visible,
+.diag-back:focus-visible {
+  outline: 3px solid var(--diag-green);
+  outline-offset: 2px;
+}
+
+.diag-form-error {
+  color: #a8382c;
   font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.diag-form-error[hidden] {
+  display: none;
+}
+
+.diag-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.diag-form-actions .cta-button {
+  width: min(100%, 320px);
+}
+
+.diag-form-actions-final .cta-button {
+  width: min(100%, 380px);
+}
+
+.diag-back {
+  min-height: 48px;
+  border: 1px solid var(--diag-line);
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--diag-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.diag-summary {
+  display: grid;
+  border-top: 1px solid var(--diag-line);
+}
+
+.diag-summary div {
+  display: grid;
+  padding-block: 12px;
+  border-bottom: 1px solid var(--diag-line);
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.diag-summary dt {
+  color: var(--diag-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.diag-summary dd {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.diag-form-note {
+  margin-top: 2px;
+}
+
+/* Public case review */
+.diag-case {
+  display: grid;
+  margin-top: 28px;
+  border: 1px solid var(--diag-line);
+  background: var(--diag-paper);
+  gap: 16px;
+  padding: clamp(20px, 4.5vw, 30px);
+}
+
+.diag-case header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--diag-line);
+}
+
+.diag-case header span {
+  color: var(--diag-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.diag-case header strong {
+  color: var(--diag-green-dark);
+  font-family: var(--font-condensed);
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  letter-spacing: 0.01em;
+}
+
+.diag-case p {
+  color: var(--diag-muted);
+  font-size: 0.84rem;
+  line-height: 1.85;
+}
+
+.diag-case dl {
+  display: grid;
+  gap: 8px;
+}
+
+.diag-case dl div {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.diag-case dt {
+  color: var(--diag-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.diag-case dd {
+  font-size: 0.82rem;
+}
+
+.diag-case-lens {
+  border-left: 4px solid var(--diag-green);
+  padding: 14px 16px;
+  background: #e3efec;
+  color: var(--diag-green-dark) !important;
+  font-weight: 700;
+}
+
+.diag-case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.diag-case-links a {
+  border: 1px solid var(--diag-line);
+  padding: 7px 11px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.diag-case-links a:hover,
+.diag-case-links a:focus-visible {
+  border-color: var(--diag-green);
+  text-decoration: underline;
 }
 
 .diag-company {
@@ -1487,85 +1733,6 @@ body[data-page="stock-diagnosis"] {
 .diag-fact span {
   color: var(--diag-muted);
   font-size: 0.82rem;
-}
-
-.review-example {
-  display: grid;
-  gap: 0;
-  margin-top: 26px;
-  border: 1px solid var(--diag-line);
-  background: var(--diag-paper);
-}
-
-.review-step {
-  position: relative;
-  padding: 18px 18px 18px 54px;
-  border-bottom: 1px solid var(--diag-line);
-}
-
-.review-step:last-child {
-  border-bottom: 0;
-}
-
-.review-step::before {
-  position: absolute;
-  top: 20px;
-  left: 18px;
-  display: grid;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--diag-green);
-  color: #ffffff;
-  content: attr(data-step);
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  place-items: center;
-}
-
-.review-step strong {
-  display: block;
-  font-size: 0.88rem;
-}
-
-.review-step p {
-  margin-top: 4px;
-  color: var(--diag-muted);
-  font-size: 0.78rem;
-}
-
-.flow-list {
-  display: grid;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.flow-step {
-  display: grid;
-  min-height: 86px;
-  padding: 16px;
-  border: 1px solid var(--diag-line);
-  background: var(--diag-paper);
-  grid-template-columns: 48px 1fr;
-  gap: 14px;
-  align-items: center;
-}
-
-.flow-step b {
-  color: var(--diag-green);
-  font-family: var(--font-condensed);
-  font-size: 1.65rem;
-}
-
-.flow-step strong {
-  display: block;
-  font-size: 0.9rem;
-}
-
-.flow-step p {
-  margin-top: 2px;
-  color: var(--diag-muted);
-  font-size: 0.74rem;
 }
 
 [data-page="stock-diagnosis"] .cta-button {
@@ -1702,29 +1869,28 @@ body[data-page="stock-diagnosis"] {
     grid-template-columns: 1fr;
   }
 
-  .review-example {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .signal-list {
+    border-top: 1px solid var(--diag-line);
   }
 
-  .review-step {
-    min-height: 145px;
-    border-right: 1px solid var(--diag-line);
-    border-bottom: 0;
+  .diag-form-panel {
+    padding: 32px;
   }
 
-  .review-step:last-child {
-    border-right: 0;
+  .diag-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .diag-options-age {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .diag-case {
+    padding: 32px;
   }
 }
 
 @media (max-width: 420px) and (max-height: 650px) {
-  .market-hero .hero-cta,
-  .diag-hero .hero-cta,
-  .market-hero .hero-cta + .micro,
-  .diag-hero .hero-cta + .micro {
-    display: none;
-  }
-
   .book-question {
     font-size: 1.7rem;
     line-height: 1.23;
@@ -1733,8 +1899,7 @@ body[data-page="stock-diagnosis"] {
   .book-instrument,
   .market-meta-row,
   .report-cover,
-  .diag-sheet,
-  .profit-question {
+  .diag-signal-note {
     display: none;
   }
 
