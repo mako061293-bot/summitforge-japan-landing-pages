@@ -1200,11 +1200,32 @@ body[data-page="stock-diagnosis"] {
     var(--diag-paper);
 }
 
+.diag-hero-grid {
+  display: grid;
+  padding-block: clamp(26px, 5vw, 54px);
+  gap: 26px;
+}
+
 .diag-hero-copy {
   display: grid;
-  padding-block: clamp(28px, 5vw, 56px);
-  gap: 14px;
+  gap: 12px;
   align-content: center;
+}
+
+.diag-hero-action {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+.diag-principle {
+  border-left: 4px solid var(--diag-green);
+  padding: 14px 16px;
+  background: #e3efec;
+  color: var(--diag-green-dark);
+  font-size: clamp(0.95rem, 2.6vw, 1.12rem);
+  font-weight: 800;
+  line-height: 1.65;
 }
 
 .diag-code {
@@ -1235,10 +1256,6 @@ body[data-page="stock-diagnosis"] {
   color: var(--diag-muted);
   font-size: 0.84rem;
   line-height: 1.8;
-}
-
-.diag-principle {
-  font-size: clamp(1.1rem, 3.4vw, 1.7rem);
 }
 
 /* Dense signal notebook */
@@ -1821,6 +1838,12 @@ body[data-page="stock-diagnosis"] {
   .book-hero-grid {
     min-height: 610px;
   }
+
+  .diag-hero-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    gap: 44px;
+    align-items: center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1894,7 +1917,7 @@ body[data-page="stock-diagnosis"] {
     align-items: start;
   }
 
-  .diag-hero-copy {
+  .diag-hero-grid {
     padding-block: 20px 116px;
   }
 
