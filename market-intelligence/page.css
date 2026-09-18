@@ -253,13 +253,6 @@ body[data-page="growth-candidates"] {
   line-height: 1.65;
 }
 
-.growth-archive-note {
-  padding: 13px 18px 16px;
-  color: var(--growth-muted);
-  font-size: 0.65rem;
-  line-height: 1.6;
-}
-
 .growth-section-head {
   display: grid;
   max-width: 820px;
@@ -367,14 +360,6 @@ body[data-page="growth-candidates"] {
 
 .growth-review-placeholder dd {
   color: #70899c;
-}
-
-.growth-review-note,
-.growth-history-note {
-  margin-top: 14px;
-  color: var(--growth-muted);
-  font-size: 0.7rem;
-  line-height: 1.7;
 }
 
 .growth-framework {
