@@ -1200,12 +1200,11 @@ body[data-page="stock-diagnosis"] {
     var(--diag-paper);
 }
 
-.diag-hero-grid {
+.diag-hero-copy {
   display: grid;
-  min-height: 680px;
-  padding-block: clamp(40px, 7vw, 76px);
-  gap: 32px;
-  align-items: center;
+  padding-block: clamp(28px, 5vw, 56px);
+  gap: 14px;
+  align-content: center;
 }
 
 .diag-code {
@@ -1217,66 +1216,118 @@ body[data-page="stock-diagnosis"] {
 }
 
 .diag-title {
-  margin-top: 14px;
+  margin-top: 4px;
   max-width: 760px;
-  font-size: clamp(2.15rem, 8.3vw, 5rem);
+  font-size: clamp(2rem, 6.2vw, 3.9rem);
   font-weight: 800;
   letter-spacing: -0.06em;
+  line-height: 1.06;
 }
 
 .diag-subtitle {
-  max-width: 620px;
+  max-width: 640px;
   color: var(--diag-muted);
-  font-size: clamp(0.94rem, 2.7vw, 1.1rem);
+  font-size: clamp(0.9rem, 2.4vw, 1.04rem);
 }
 
 .diag-lead {
-  max-width: 600px;
+  max-width: 640px;
   color: var(--diag-muted);
-  font-size: 0.86rem;
-  line-height: 1.85;
+  font-size: 0.84rem;
+  line-height: 1.8;
 }
 
-/* 3-signal summary panel */
-.diag-signal-sheet {
-  border: 1px solid var(--diag-line);
+.diag-principle {
+  font-size: clamp(1.1rem, 3.4vw, 1.7rem);
+}
+
+/* Dense signal notebook */
+.diag-notebook-section {
   background: var(--diag-paper);
-  box-shadow: 16px 16px 0 rgba(14, 122, 101, 0.08);
 }
 
-.diag-signal-mini {
+.diag-notebook-head {
   display: grid;
+  max-width: 780px;
+  gap: 8px;
 }
 
-.diag-signal-mini li {
+.diag-notebook-head p {
+  color: var(--diag-muted);
+  font-size: 0.82rem;
+}
+
+.diag-notebook {
+  margin-top: 22px;
+  border: 1px solid var(--diag-line);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(1.72rem - 1px),
+      rgba(20, 48, 57, 0.09) calc(1.72rem - 1px),
+      rgba(20, 48, 57, 0.09) 1.72rem
+    ),
+    #f7fbfa;
+}
+
+.notebook-entry {
   display: grid;
-  padding: 16px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--diag-line);
-  grid-template-columns: 32px 1fr;
-  gap: 10px;
+  gap: 8px;
 }
 
-.diag-signal-mini b {
+.notebook-index {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.notebook-index b {
   color: var(--diag-green);
   font-family: var(--font-mono);
   font-size: 0.74rem;
 }
 
-.diag-signal-mini strong {
-  display: block;
-  font-size: 0.92rem;
+.notebook-index span {
+  color: var(--diag-green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
-.diag-signal-mini p {
-  margin-top: 3px;
-  color: var(--diag-muted);
-  font-size: 0.76rem;
+.notebook-body h3 {
+  font-size: 0.94rem;
+  line-height: 1.5;
 }
 
-.diag-signal-note {
-  padding: 13px 16px;
+.notebook-tag {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 5px;
+  border: 1px solid var(--diag-line);
+  padding: 2px 7px;
   color: var(--diag-muted);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.notebook-body p {
+  margin-top: 6px;
+  color: var(--diag-muted);
+  font-size: 0.79rem;
+  line-height: 1.72;
+}
+
+.notebook-foot {
+  padding: 14px 16px;
+  border-left: 4px solid var(--diag-green);
+  background: #e3efec;
+  color: var(--diag-green-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.7;
 }
 
 .diag-sheet-head {
@@ -1296,130 +1347,88 @@ body[data-page="stock-diagnosis"] {
   letter-spacing: 0.06em;
 }
 
-/* 3 signals */
-.signal-list {
-  display: grid;
-  margin-top: 30px;
-  border-top: 1px solid var(--diag-line);
-}
-
-.signal-item {
-  display: grid;
-  padding-block: 22px;
-  border-bottom: 1px solid var(--diag-line);
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 6px 14px;
-  align-items: start;
-}
-
-.signal-number {
-  color: var(--diag-green);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.signal-item h3 {
-  font-size: clamp(1rem, 2.7vw, 1.24rem);
-  line-height: 1.45;
-}
-
-.signal-tag {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 6px;
-  border: 1px solid var(--diag-line);
-  padding: 4px 9px;
-  color: var(--diag-green-dark);
-  font-size: 0.7rem;
-  font-weight: 700;
-  grid-column: 2;
-}
-
-.signal-item p {
-  margin-top: 4px;
-  color: var(--diag-muted);
-  font-size: 0.84rem;
-  line-height: 1.85;
-  grid-column: 2;
-}
-
-.signal-conclusion {
-  margin-top: 26px;
-  border-left: 4px solid var(--diag-green);
-  padding: 16px 18px;
-  background: #e3efec;
-  color: var(--diag-green-dark);
-  font-weight: 700;
-  line-height: 1.8;
-}
-
-.scenario-list {
-  display: grid;
-  margin-top: 28px;
-  border-top: 1px solid var(--diag-line);
-}
-
-.scenario-item {
-  display: grid;
-  padding-block: 16px;
-  border-bottom: 1px solid var(--diag-line);
-  grid-template-columns: 82px 1fr;
-  gap: 12px;
-}
-
-.scenario-item dt {
-  color: var(--diag-green);
-  font-weight: 800;
-}
-
-.scenario-item dd {
-  color: var(--diag-muted);
-}
-
-.diag-matrix-section {
+/* Closing check — five axes and final call */
+.diag-closing {
   background: var(--diag-ink);
   color: #f4faf8;
 }
 
-.diag-matrix {
+.diag-closing-head {
   display: grid;
-  margin-top: 30px;
+  max-width: 780px;
+  gap: 8px;
+}
+
+.diag-closing-head p {
+  color: #b7cbc7;
+  font-size: 0.82rem;
+}
+
+.diag-closing .section-heading {
+  font-size: clamp(1.25rem, 3.9vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.diag-closing-grid {
+  display: grid;
+  margin-top: 22px;
+  gap: 18px;
+}
+
+.diag-axis-list {
+  display: grid;
   border-top: 1px solid rgba(255, 255, 255, 0.23);
 }
 
-.diag-dimension {
+.diag-axis-list li {
   display: grid;
-  padding-block: 19px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  grid-template-columns: 36px minmax(0, 0.8fr) minmax(0, 1.2fr);
+  padding-block: 11px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  grid-template-columns: 26px minmax(0, 1fr);
   gap: 10px;
-  align-items: start;
+  align-items: baseline;
 }
 
-.diag-check {
-  display: grid;
-  width: 24px;
-  height: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+.diag-axis-list b {
   color: #66d7b9;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  place-items: center;
+  font-size: 0.68rem;
 }
 
-.diag-dimension h3 {
+.diag-axis-list strong {
+  display: block;
   font-family: var(--font-condensed);
-  font-size: 1.12rem;
+  font-size: 0.98rem;
   letter-spacing: 0.06em;
 }
 
-.diag-dimension p {
+.diag-axis-list span {
   color: #b7cbc7;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 }
 
-/* AI diagnosis form */
+.diag-closing-cta {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+
+.diag-closing-question {
+  font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.diag-closing-note {
+  color: #b7cbc7;
+  font-size: 0.78rem;
+}
+
+.diag-closing-cta .cta-button {
+  width: min(100%, 360px);
+}
+
+/* Free holding check form */
 .diag-ai {
   background: #e6efed;
 }
@@ -1822,8 +1831,7 @@ body[data-page="stock-diagnosis"] {
 
 @media (min-width: 900px) {
   .book-hero-grid,
-  .market-hero-grid,
-  .diag-hero-grid {
+  .market-hero-grid {
     grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   }
 
@@ -1857,20 +1865,14 @@ body[data-page="stock-diagnosis"] {
     transform: translateY(-50%) rotate(-90deg);
   }
 
-  .diag-matrix {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+  .notebook-entry {
+    padding: 16px 20px;
   }
 
-  .diag-dimension {
-    min-height: 190px;
-    padding: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    grid-template-columns: 1fr;
-  }
-
-  .signal-list {
-    border-top: 1px solid var(--diag-line);
+  .diag-closing-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+    gap: 32px;
+    align-items: start;
   }
 
   .diag-form-panel {
@@ -1898,17 +1900,19 @@ body[data-page="stock-diagnosis"] {
 
   .book-instrument,
   .market-meta-row,
-  .report-cover,
-  .diag-signal-note {
+  .report-cover {
     display: none;
   }
 
   .book-hero-grid,
-  .market-hero-grid,
-  .diag-hero-grid {
+  .market-hero-grid {
     min-height: 0;
     padding-block: 24px 130px;
     align-items: start;
+  }
+
+  .diag-hero-copy {
+    padding-block: 20px 116px;
   }
 
   .conversion-inner {
@@ -1942,12 +1946,12 @@ body[data-page="stock-diagnosis"] {
     min-height: 52px;
   }
 
-  .diag-dimension {
-    grid-template-columns: 32px 1fr;
+  .diag-title {
+    font-size: 2.05rem;
   }
 
-  .diag-dimension p {
-    grid-column: 2;
+  .notebook-entry {
+    padding: 13px 14px;
   }
 }
 
