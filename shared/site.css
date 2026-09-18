@@ -1330,23 +1330,6 @@ body[data-page="stock-diagnosis"] {
   line-height: 1.7;
 }
 
-.diag-sheet-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 16px;
-  border-bottom: 1px solid var(--diag-line);
-  background: var(--diag-ink);
-  color: #ffffff;
-}
-
-.diag-sheet-head span {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.06em;
-}
-
 /* Closing check — five axes and final call */
 .diag-closing {
   background: var(--diag-ink);
