@@ -542,17 +542,15 @@ body[data-page="strategy-book"] {
 .book-course-cover {
   position: relative;
   display: grid;
-  min-height: 380px;
-  align-content: center;
-  gap: 20px;
+  align-self: center;
   border: 1px solid rgba(20, 35, 59, 0.36);
-  padding: clamp(24px, 5vw, 42px);
   background:
-    linear-gradient(rgba(20, 35, 59, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 35, 59, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(20, 35, 59, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 35, 59, 0.055) 1px, transparent 1px),
     #e8e4d9;
-  background-size: 32px 32px;
+  background-size: 28px 28px;
   box-shadow: 16px 16px 0 rgba(181, 58, 50, 0.1);
+  overflow: hidden;
 }
 
 .book-course-cover::before {
@@ -565,34 +563,138 @@ body[data-page="strategy-book"] {
   content: "";
 }
 
+.book-course-header {
+  display: grid;
+  padding: 26px 22px 20px 28px;
+  gap: 9px;
+}
+
 .book-course-year {
   color: var(--book-red);
   font-family: var(--font-condensed);
-  font-size: 1rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
 
 .book-course-cover h2 {
   font-family: var(--font-serif);
-  font-size: clamp(2.1rem, 6vw, 3.75rem);
+  font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 900;
   letter-spacing: -0.05em;
+  line-height: 1.25;
 }
 
-.book-course-cover p {
+.book-course-header p {
   color: var(--book-muted);
-  font-size: 0.9rem;
+  font-size: 0.76rem;
+  line-height: 1.65;
 }
 
-.book-course-cover > strong {
+.book-course-format {
   width: fit-content;
+  margin-top: 2px;
   border: 1px solid var(--book-ink);
-  padding: 8px 11px;
-  font-size: 0.76rem;
+  padding: 6px 9px;
+  font-size: 0.67rem;
   letter-spacing: 0.06em;
 }
 
+.book-course-toc {
+  border-top: 2px solid var(--book-ink);
+  background: rgba(248, 246, 239, 0.76);
+}
+
+.book-course-toc-heading {
+  display: grid;
+  padding: 12px 14px 10px 20px;
+  border-bottom: 1px solid rgba(20, 35, 59, 0.28);
+  gap: 2px;
+}
+
+.book-course-toc-heading span {
+  color: var(--book-red);
+  font-family: var(--font-condensed);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.book-course-toc-heading strong {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+}
+
+.book-course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.book-course-grid > li {
+  display: grid;
+  min-width: 0;
+  padding: 11px 10px 11px 12px;
+  border-right: 1px solid rgba(20, 35, 59, 0.2);
+  border-bottom: 1px solid rgba(20, 35, 59, 0.2);
+  grid-template-columns: 25px minmax(0, 1fr);
+  gap: 6px;
+}
+
+.book-course-grid > li:nth-child(even) {
+  border-right: 0;
+}
+
+.book-course-grid > li > b {
+  color: var(--book-red);
+  font-family: var(--font-condensed);
+  font-size: 1rem;
+  line-height: 1.1;
+}
+
+.book-course-grid h3 {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.book-course-grid p {
+  margin-top: 4px;
+  color: var(--book-muted);
+  font-size: 0.6rem;
+  line-height: 1.55;
+}
+
+.book-course-grid em {
+  display: inline;
+  border-bottom: 1px solid var(--book-red);
+  color: var(--book-ink);
+  font-size: 0.57rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.book-course-grid > .book-course-traps {
+  grid-column: 1 / -1;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.book-course-traps ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7px;
+  gap: 4px;
+}
+
+.book-course-traps li {
+  border: 1px solid rgba(20, 35, 59, 0.22);
+  padding: 3px 5px;
+  color: var(--book-muted);
+  font-size: 0.53rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
 .book-problem {
   background: var(--book-ink);
   color: #f7f5ee;
@@ -642,65 +744,6 @@ body[data-page="strategy-book"] {
   font-style: normal;
 }
 
-.tech-list {
-  display: grid;
-  margin-top: 34px;
-  border-top: 2px solid var(--book-ink);
-}
-
-.tech-item {
-  display: grid;
-  padding-block: 22px;
-  border-bottom: 1px solid rgba(20, 35, 59, 0.28);
-  grid-template-columns: 50px 1fr;
-  gap: 14px;
-}
-
-.tech-number {
-  color: var(--book-red);
-  font-family: var(--font-condensed);
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.tech-item h3 {
-  font-family: var(--font-serif);
-  font-size: 1.13rem;
-}
-
-.tech-item p {
-  margin-top: 7px;
-  color: var(--book-muted);
-  font-size: 0.9rem;
-}
-
-.tech-item p strong {
-  color: var(--book-ink);
-}
-
-.tech-note {
-  display: inline-block;
-  margin-top: 12px;
-  border-bottom: 2px solid var(--book-red);
-  padding-bottom: 3px;
-  font-size: 0.78rem;
-}
-
-.trap-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 14px;
-}
-
-.trap-list li {
-  border: 1px solid rgba(20, 35, 59, 0.24);
-  padding: 6px 8px;
-  color: var(--book-muted);
-  font-size: 0.74rem;
-  font-weight: 700;
-}
 
 .company-sheet {
   background: #d9d5ca;
@@ -1789,20 +1832,6 @@ body[data-page="stock-diagnosis"] {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .tech-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-left: 1px solid rgba(20, 35, 59, 0.28);
-  }
-
-  .tech-item {
-    padding: 24px;
-    border-right: 1px solid rgba(20, 35, 59, 0.28);
-    grid-template-columns: 54px 1fr;
-  }
-
-  .tech-item:last-child {
-    grid-column: 1 / -1;
-  }
 
   .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1837,6 +1866,8 @@ body[data-page="stock-diagnosis"] {
 
   .book-hero-grid {
     min-height: 610px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(500px, 1.1fr);
+    align-items: center;
   }
 
   .diag-hero-grid {
@@ -1927,6 +1958,23 @@ body[data-page="stock-diagnosis"] {
 
   .conversion-bar .cta-button {
     min-height: 46px;
+  }
+}
+
+@media (max-width: 699px) {
+  body[data-page="stock-diagnosis"] {
+    --section-space: 24px;
+  }
+
+  [data-page="stock-diagnosis"] .diag-notebook,
+  [data-page="stock-diagnosis"] .diag-form,
+  [data-page="stock-diagnosis"] .diag-case,
+  [data-page="stock-diagnosis"] .diag-facts {
+    margin-top: 14px;
+  }
+
+  [data-page="stock-diagnosis"] .diag-closing-grid {
+    margin-top: 14px;
   }
 }
 
