@@ -224,19 +224,6 @@ ol {
   text-align: right;
 }
 
-.risk-box {
-  padding: 20px;
-  border: 1px solid currentColor;
-  font-size: 0.78rem;
-  line-height: 1.8;
-}
-
-.risk-box strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.86rem;
-}
-
 .final-cta {
   display: grid;
   gap: 22px;
@@ -910,11 +897,6 @@ body[data-page="strategy-book"] {
   color: var(--book-ink);
 }
 
-[data-page="strategy-book"] .risk-box {
-  border-color: rgba(20, 35, 59, 0.35);
-  color: var(--book-muted);
-}
-
 /* =========================================================
    MARKET INTELLIGENCE — night terminal
    ========================================================= */
@@ -1207,11 +1189,6 @@ body[data-page="market-intelligence"] {
   border-top: 1px solid rgba(51, 214, 197, 0.5);
   background: #071b2b;
   color: var(--market-ink);
-}
-
-[data-page="market-intelligence"] .risk-box {
-  border-color: var(--market-line);
-  color: var(--market-muted);
 }
 
 /* =========================================================
@@ -1802,11 +1779,6 @@ body[data-page="stock-diagnosis"] {
 [data-page="stock-diagnosis"] .conversion-bar .cta-button {
   background: #37b693;
   color: #06231c;
-}
-
-[data-page="stock-diagnosis"] .risk-box {
-  border-color: var(--diag-line);
-  color: var(--diag-muted);
 }
 
 @media (min-width: 700px) {

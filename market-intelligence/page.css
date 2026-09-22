@@ -132,17 +132,6 @@ body[data-page="growth-candidates"] {
 }
 
 .growth-micro,
-.growth-boundary {
-  max-width: 650px;
-  color: var(--growth-muted);
-  font-size: 0.72rem;
-  line-height: 1.7;
-}
-
-.growth-boundary {
-  border-left: 2px solid var(--growth-amber);
-  padding-left: 10px;
-}
 
 .growth-archive {
   display: grid;
@@ -556,11 +545,6 @@ body[data-page="growth-candidates"] {
   width: min(100%, 470px);
 }
 
-.growth-risk-box {
-  border-color: var(--growth-line);
-  color: var(--growth-muted);
-}
-
 .growth-footer {
   color: var(--growth-muted);
 }
@@ -577,10 +561,6 @@ body[data-page="growth-candidates"] {
   color: #03161d;
   font-size: clamp(0.74rem, 2.8vw, 0.9rem);
   white-space: normal;
-}
-
-[data-page="growth-candidates"] .risk-box strong {
-  color: var(--growth-ink);
 }
 
 @media (min-width: 700px) {
